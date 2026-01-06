@@ -25,7 +25,12 @@
                 <article>
                     <h2>$Title</h2>
                     <p>$Content.Summary(100)</p>
-                    <% if $Image %>
+                    <% if $Video %>
+                        <video controls>
+                            <source src="{$Video.URL}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    <% else_if $Image %>
                         <img src="{$Image.Fill(200,200).Convert('webp').URL}" alt="<% if $AlternativeText %>{$AlternativeText}<% else %>{$Image.Title.ATT}<% end_if %>">
                     <% end_if %>
                 </article>
